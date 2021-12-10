@@ -1,21 +1,23 @@
 <script setup>
 import Velocity from 'velocity-animate'
-import { watch } from 'vue'
+import { toRefs, watch } from 'vue'
 
 const props = defineProps({
-  numCircles: Number
+  state: Object
 })
+
+const { state } = toRefs(props)
 
 let circles = $ref([])
 
 
-times(props.numCircles.value, num => {
+times(state.value.numCircles, num => {
   setTimeout(addCircle, num * 50)
 })
 
 
 watch(
-  props.numCircles,
+  () => state.value.numCircles,
   (newCount) => {
     if (newCount > circles.length) {
       times(newCount - circles.length, (num) => {

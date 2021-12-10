@@ -5,7 +5,7 @@ let state = {
   numCircles: 25
 }
 
-let numCircles = ref(state.numCircles)
+let stateRef = ref({ ...state })
 
 let template = {
   data: {},
@@ -13,11 +13,11 @@ let template = {
   state,
 
   update() {
-    numCircles.value = state.numCircles
+    stateRef.value = { ...state }
   },
 
   draw() {
-    createApp(App, { numCircles }).mount('#app')
+    createApp(App, { state: stateRef }).mount('#app')
   }
 }
 
