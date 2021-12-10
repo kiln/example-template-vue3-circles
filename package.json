@@ -1,0 +1,16 @@
+{
+  "name": "example-template-vue-3-circles",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "vite build && mv style.css static/",
+    "start": "flourish run"
+  },
+  "dependencies": {
+    "velocity-animate": "^1.4.3",
+    "vue": "^3.2.23"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.10.2",
+    "vite": "^2.7.0"
+  }
+}
